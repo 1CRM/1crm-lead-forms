@@ -1,0 +1,33 @@
+.ocrmlf-invalid-field {
+	display: block;
+	color: #F33;
+}
+
+.ocrmlf-form-error {
+	display: block;
+	color: #F33;
+}
+
+.ocrmlf-form table,.ocrmlf-form td {
+	border: none;
+}
+
+.ocrmlf-form td.ocrmlf-field-label {
+	vertical-align: top;
+}
+
+.ocrmlf-form td.ocrmlf-submit {
+	text-align: center;
+}
+
+.ocrmlf-form-status {
+	border: solid 2px #30D;
+	display: none;
+	padding: 5px;
+	margin-top: 10px;
+}
+
+.ocrmlf-form-status[role="alert"] {
+	border-color: #D03;
+}
+

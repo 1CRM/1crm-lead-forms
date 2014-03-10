@@ -1,0 +1,86 @@
+.field-list-dropdown {
+	min-width: 150px;
+	display:none;
+	position: absolute;
+	top: 29px;
+	left:10px;
+	background-color: #FFF;
+	padding: 4px;
+	border: solid 1px #000;
+	z-index: 500;
+}
+
+.field-list-dropdown div {
+	cursor: pointer;
+	padding: 2px;
+}
+
+.field-list-dropdown div:hover {
+	background-color: #EEF;
+}
+
+#fields-container {
+	margin-top: 10px;
+}
+
+#fields-container .field-title {
+	background: #E0E0E0;
+	color: #555;
+	padding: 8px;
+	font-weight: bold;
+	font-size: 110%;
+}
+
+#fields-container .field-title .field-name-wrapper {
+	margin-right: 90px;
+}
+
+#fields-container .field-title input {
+	width: 100%;
+}
+
+#fields-container .field-description {
+	border: solid 1px #E0E0E0;
+	border-top: none;
+	padding: 5px;
+}
+
+.field-container.closed .field-description {
+	display: none;
+}
+
+.field-container .handlediv:before {
+	content: '\f142' !important;
+}
+.field-container.closed .handlediv:before {
+	content: '\f140' !important;
+}
+
+.field-container .closebutton {
+	color: #777;
+	font: normal 18px monospace;
+	padding: 1px 4px;
+	cursor: pointer;
+}
+
+.insert-into-text {
+	float: right;
+	width: 27px;
+	height: 30px;
+	line-height: 30px;
+	cursor: pointer;
+}
+
+.ocrmlf-field {
+	display: inline-block;
+}
+
+.ocrmlf-label {
+	width: 160px;
+	asdtext-align: right;
+	display: inline-block;
+}
+
+.meta-box-sortables #emaildiv input[type="text"] , .meta-box-sortables #scriptdiv input[type="text"] {
+	width: 350px;;
+}
