@@ -25,7 +25,7 @@ jQuery(document).ready(function() {
 						elt.after(span);
 					}
 				}
-				if (typeof(data.http_result) == 'object') {
+				if (typeof(data.http_result) == 'object' && data.http_result) {
 					if (data.http_result.error) {
 						$(".ocrmlf-form-status").empty().attr('role', 'alert').append(data.http_result.error).show();
 						have_errors = true;
@@ -37,7 +37,7 @@ jQuery(document).ready(function() {
 					$form.resetForm().clearForm();
 					if (data.redirect)
 						redirect = data.redirect;
-					if (typeof(data.http_result) == 'object') {
+					if (typeof(data.http_result) == 'object' && data.http_result) {
 						if (data.http_result.redirect)
 							redirect = data.http_result.redirect;
 						if (data.http_result.message)

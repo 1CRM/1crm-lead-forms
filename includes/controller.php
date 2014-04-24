@@ -41,6 +41,7 @@ function ocrmlf_controller_submit() {
 		$validator = new OneCRMLeadFormValidator($form);
 		$input = $_POST;
 		$response = $validator->validate($input);
+		$response['posted'] = true;
 		if ($response['valid'])
 			$form->submit($_POST, $response);
 		$form->set_validation_result($response);

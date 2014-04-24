@@ -52,7 +52,7 @@ class OneCRMLeadFormRenderer {
 		} elseif (!$this->has_errors() && isset($this->form->validation_result['http_result']->message)) {
 			$message = $this->form->validation_result['http_result']->message;
 			$style = ' style="display:block" ';
-		} elseif (!$this->has_errors()) {
+		} elseif (!$this->has_errors() && !empty($this->form->validation_result['posted'])) {
 			$messages = $this->form->get_messages();
 			$message = $messages['success'];
 			$style = ' style="display:block" ';
