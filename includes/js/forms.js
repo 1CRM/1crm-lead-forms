@@ -21,7 +21,10 @@ jQuery(document).ready(function() {
 						var span = document.createElement('span');
 						span.setAttribute('role', 'alert');
 						span.setAttribute('class', 'ocrmlf-invalid-field');
-						$(span).append(messages[err]);
+						if (messages[err])
+							$(span).append(messages[err]);
+						else
+							$(span).append(err);
 						elt.after(span);
 					}
 				}

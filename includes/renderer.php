@@ -79,7 +79,9 @@ class OneCRMLeadFormRenderer {
 		$messages = $this->form->get_messages();
 		if (isset($this->form->validation_result['errors'][$name])) {
 			$msg = $this->form->validation_result['errors'][$name];
-			$ret .= '<span role="alert" class="ocrmlf-invalid-field">' . esc_html($messages[$msg]) . '</span>';
+			if (isset($messages[$msg]))
+				$msg = $messages[$msg];
+			$ret .= '<span role="alert" class="ocrmlf-invalid-field">' . esc_html($msg) . '</span>';
 		}
 		return $ret;
 	}

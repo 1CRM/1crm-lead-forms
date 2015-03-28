@@ -26,6 +26,16 @@ OneCRMLeadFormEditor = new function() {
 				name: 'placeholder',
 				label: 'Placeholder for empty value (optional)',
 				type: 'text'
+			},
+			{
+				name: 'validator',
+				label: 'Validator regular expression (optional)',
+				type: 'text'
+			},
+			{
+				name: 'validator_message',
+				label: 'Validator message (optional)',
+				type: 'text'
 			}
 		],
 		spinbox : [

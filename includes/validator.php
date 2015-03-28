@@ -64,9 +64,15 @@ class OneCRMLeadFormValidator {
 		$fields = json_decode($this->form->fields);
 		foreach ($fields as $field) {
 			$value = $this->get_posted_value($input, $field->name);
-			if (!isset(self::$validators[$field->type]))
+			$validators = array();
+			if (isset(self::$validators[$field->type]))
+				$validators = self::$validators[$field->type];
+			if (!empty($field->validator)) {
+				$msg = empty($field->validator_message) ? 'Invalid Value' : $field->validator_message;
+				$validators[] = array('re', '~' . $field->validator . '~', $msg);
+			}
+			if (empty($validators))
 				continue;
-			$validators = self::$validators[$field->type];
 			foreach ($validators as $v) {
 				$method = 'validate_' . $v[0];
 				$valid = $this->$method($field, $value, $v, $result);
