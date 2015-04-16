@@ -169,6 +169,11 @@ OneCRMLeadFormEditor = new function() {
 				name: 'label',
 				label: 'Label (optional)',
 				type: 'text'
+			},
+			{
+				name: 'wait_label',
+				label: 'Label when waiting for reply  (optional)',
+				type: 'text'
 			}
 		],
 		hidden: [

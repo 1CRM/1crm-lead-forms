@@ -6,6 +6,12 @@ jQuery(document).ready(function() {
 		var form = this;
 		$(form).ajaxForm({
 			beforeSubmit: function(arr, $form, options) {
+				$form.find('.ocrmlf-input.submit').each(function(j, b) {
+					$(this).attr('revert_value', this.value);
+					if ($(this).attr('wait_value'))
+						this.value = $(this).attr('wait_value');
+					this.disabled = "disabled";
+				});
 			},
 			success: function(data, status, xhr, $form) {
 				var id = $form.find('[name="_ocrmlf_id"]').val();
@@ -50,6 +56,11 @@ jQuery(document).ready(function() {
 					if (redirect)
 						window.location.href = redirect;
 				}
+
+				$form.find('.ocrmlf-input.submit').each(function(j, b) {
+					this.value = $(this).attr('revert_value');
+					this.disabled = "";
+				});
 			},
 			data : {
 				_ocrmlf_ajax: '1'
@@ -59,6 +70,10 @@ jQuery(document).ready(function() {
 				var id = $form.find('[name="_ocrmlf_id"]').val();
 				var messages = eval('_ocrmlf_messages_' + id);
 				$(".ocrmlf-form-status").empty().attr('role', 'alert').append(messages.error_posting).show();
+				$form.find('.ocrmlf-input.submit').each(function(j, b) {
+					this.value = $(this).attr('revert_value');
+					this.disabled = "";
+				});
 			}
 		});
 	});

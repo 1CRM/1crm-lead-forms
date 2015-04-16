@@ -257,6 +257,8 @@ class OneCRMLeadFormRenderer {
 		);
 		if (isset($def->label) && strlen($def->label))
 			$attrs['value'] = $def->label;
+		if (isset($def->wait_label) && strlen($def->wait_label))
+			$attrs['wait_value'] = $def->wait_label;
 		return $this->render_input($def, $attrs);
 	}
 
