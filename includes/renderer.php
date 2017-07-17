@@ -30,7 +30,7 @@ class OneCRMLeadFormRenderer {
 			wp_enqueue_script(
 				'ocrmlf-forms',
 				OCRMLF_PLUGIN_URL . '/includes/js/forms.js',
-				array( 'jquery' ),
+				array( 'jquery', 'jquery-form' ),
 				OCRMLF_VERSION,
 				true
 			);
@@ -42,6 +42,10 @@ class OneCRMLeadFormRenderer {
 		$html = '<form method="POST" class="ocrmlf-form" id="' . $id . '" action="' . $uri . '">';
 		$html .= '<input type="hidden" name="_ocrmlf_form_id" value="' . $id . '" >';
 		$html .= '<input type="hidden" name="_ocrmlf_id" value="' . $this->form->id . '" >';
+		$vars = ocrm_lf_process_request_vars();
+		foreach ($vars as $k => $v) {
+			$html .= '<input type="hidden" name="' . $k . '" value="' . $v . '" >';
+		}
 		$this->replaced_tags = array();
 		$html .= preg_replace_callback($re, array($this, 'replace_tags'), $this->form->form);
 
