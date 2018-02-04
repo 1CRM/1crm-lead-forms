@@ -25,17 +25,6 @@ class OneCRMLeadFormRenderer {
 	}
 
 	public function render() {
-		static $script = false;
-		if (!$script) {
-			wp_enqueue_script(
-				'ocrmlf-forms',
-				OCRMLF_PLUGIN_URL . '/includes/js/forms.js',
-				array( 'jquery', 'jquery-form' ),
-				OCRMLF_VERSION,
-				true
-			);
-			$script = true;
-		}
 		$re = '~\{([a-z][0-9A-Z:._-]*)\}~i';
 		$uri = ocrmlf_request_uri();
 		$id = 'ocrmlf-form-' . $this->form->id;

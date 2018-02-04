@@ -4,12 +4,28 @@
 require_once OCRMLF_INCLUDES_DIR . '/validator.php';
 add_action( 'init', 'ocrmlf_controller_init', 12);
 
-wp_enqueue_style(
-	'ocrmlf-style',
-	OCRMLF_PLUGIN_URL .  '/includes/css/styles.css',
-	array(), OCRMLF_VERSION,
-	'all'
-);
+add_action( 'wp_enqueue_scripts', 'ocrmlf_enqueue_scripts' );
+
+function ocrmlf_enqueue_scripts( $hook_suffix ) {
+	if ( false === strpos( $hook_suffix, 'ocrmlf' ) )
+		return;
+
+	wp_enqueue_style(
+		'ocrmlf-style',
+		OCRMLF_PLUGIN_URL .  '/includes/css/styles.css',
+		array(), OCRMLF_VERSION,
+		'all'
+	);
+	
+	wp_enqueue_script(
+		'ocrmlf-forms',
+		OCRMLF_PLUGIN_URL . '/includes/js/forms.js',
+		array( 'jquery', 'jquery-form' ),
+		OCRMLF_VERSION,
+		true
+	);
+}
+
 
 function ocrmlf_controller_init()
 {
