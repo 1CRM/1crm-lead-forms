@@ -1,8 +1,10 @@
 <?php
 
 require_once OCRMLF_INCLUDES_DIR . '/leadform.php';
-define('OCRM_EX1', '_1crm_ex1');
-define('OCRM_EX2', '_1crm_ex2');
+if (!defined('OCRM_EX1'))
+	define('OCRM_EX1', '_1crm_ex1');
+if (!defined('OCRM_EX2'))
+	define('OCRM_EX2', '_1crm_ex2');
 
 function ocrmlf_register_post_types() {
 	OneCRMLeadForm::register_post_types();
