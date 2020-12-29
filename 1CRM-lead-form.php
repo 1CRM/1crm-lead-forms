@@ -3,12 +3,12 @@
  * Plugin Name: 1CRM Lead Forms
  * Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
  * Description: Easy form generation for 1CRM lead capture
- * Version: 1.0
+ * Version: 1.1
  * Author: 1CRM Corp.
  * License: MY_OWN
  */
 
-define( 'OCRMLF_VERSION', '1.0' );
+define( 'OCRMLF_VERSION', '1.1' );
 define('OCRMLF_PLIGIN_DIR', dirname(__FILE__));
 define ('OCRMLF_INCLUDES_DIR', OCRMLF_PLIGIN_DIR . '/includes');
 define ('OCRMLF_ADMIN_DIR', OCRMLF_PLIGIN_DIR . '/admin');
